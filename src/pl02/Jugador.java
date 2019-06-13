@@ -1,5 +1,7 @@
 package pl02;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Jugador extends Thread {
 
 	/**
@@ -53,6 +55,13 @@ public class Jugador extends Thread {
 			}
 			
 			System.out.println("Jugador " + id + "["+pelotas+","+palos+"] Jugando al golf.");
+			int tiempoDeJuego = 100 + ThreadLocalRandom.current().nextInt(900);
+			try {
+				Thread.sleep(tiempoDeJuego);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			System.out.println("Jugador " + id + "["+pelotas+","+palos+"] Devolviendo pelotas y palos.");
 			
