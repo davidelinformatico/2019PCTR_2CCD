@@ -21,6 +21,10 @@ public class Jugador extends Thread {
 	 * Referencia al objeto Club donde juega el jugador.
 	 */
 	Club elClub;
+	
+	private int pelotas = 0;
+	
+	private int palos = 0;
 
 	public Jugador(int id, boolean experto, int numVueltas, Club elClub) {
 		super();
@@ -35,6 +39,29 @@ public class Jugador extends Thread {
 		super.run();
 		
 		// vueltas
+		for (int vuelta = 0; vuelta < numVueltas; vuelta++) {
+			System.out.println("Jugador " + id + "["+pelotas+","+palos+"] Reservando pelotas y palos.");
+			
+			if (experto) {
+				elClub.reservar(2, 5);
+				pelotas += 2;
+				palos += 5;
+			} else {
+				elClub.reservar(5,  2);
+				pelotas += 5;
+				palos += 2;
+			}
+			
+			System.out.println("Jugador " + id + "["+pelotas+","+palos+"] Jugando al golf.");
+			
+			System.out.println("Jugador " + id + "["+pelotas+","+palos+"] Devolviendo pelotas y palos.");
+			
+			pelotas = 0;
+			palos = 0;
+			elClub.devolver(pelotas, palos);
+			System.out.println("Jugador " + id + "["+pelotas+","+palos+"] Descansando.");
+
+		}
 	}
 	
 	

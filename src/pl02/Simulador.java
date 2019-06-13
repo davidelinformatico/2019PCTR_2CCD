@@ -21,6 +21,18 @@ public class Simulador {
 	public static void main(String[] args) {
 
 		Club club = new Club(NUM_PELOTAS, NUM_PALOS);
+		Jugador[] expertos = new Jugador[NUM_EXPERTOS];
+		Jugador[] novatos = new Jugador[NUM_NOVATOS];
+		
+		for (int i=0; i<NUM_EXPERTOS; i++) {
+			// asignamos ids a partir de 100 a los novatos
+			novatos[i] = new Jugador(100 + i, false, NUM_VUELTAS, club);
+			novatos[i].start();
+
+			// asignamos ids a partir del 200 a los expertos
+			expertos[i] = new Jugador(200 + i, true, NUM_VUELTAS, club);
+			expertos[i].start();
+		}
 	}
 
 }
