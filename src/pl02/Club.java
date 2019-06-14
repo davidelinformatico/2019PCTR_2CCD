@@ -40,8 +40,10 @@ public class Club {
 	 * @param palos
 	 */
 	public synchronized void reservar(int pelotas, int palos) {
+		
+		// Si no hay suficiente de algún recurso, hacemos esperar al hilo del
+		// jugador solicitante. Repetimos la espera mientras no haya suficiente.
 		while (pelotasDisponibles<pelotas || palosDisponibles<palos) {
-			// hacemos esperar al proceso hasta que haya material
 			try {
 				//System.out.println("No hay material: " + this);
 				wait();
@@ -50,6 +52,7 @@ public class Club {
 			}
 		}
 		
+		// En cuanto sabemos que hay suficiente material, decrementamos cantidades.
 		pelotasDisponibles -= pelotas;
 		palosDisponibles -= palos;
 	}
