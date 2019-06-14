@@ -1,5 +1,10 @@
 package pl02;
 
+/**
+ * @author David
+ *
+ */
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Jugador extends Thread {
@@ -78,7 +83,7 @@ public class Jugador extends Thread {
 			
 			
 		}
-		System.out.println(elClub);
+		//System.out.println(elClub);
 
 	}
 

@@ -26,13 +26,14 @@ public class Simulador {
 		
 		for (int i=0; i<NUM_EXPERTOS; i++) {
 			// asignamos ids a partir de 100 a los novatos
-			novatos[i] = new Jugador(100 + i, false, NUM_VUELTAS, club);
+			novatos[i] = new Jugador(1 + i, false, NUM_VUELTAS, club);
 			novatos[i].start();
 
 			// asignamos ids a partir del 200 a los expertos
-			expertos[i] = new Jugador(200 + i, true, NUM_VUELTAS, club);
+			expertos[i] = new Jugador(8 + i, true, NUM_VUELTAS, club);
 			expertos[i].start();
 		}
+		
 	}
 
 }

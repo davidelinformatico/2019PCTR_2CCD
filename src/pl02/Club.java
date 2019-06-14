@@ -43,7 +43,7 @@ public class Club {
 		while (pelotasDisponibles<pelotas || palosDisponibles<palos) {
 			// hacemos esperar al proceso hasta que haya material
 			try {
-				System.out.println("No hay material: " + this);
+				//System.out.println("No hay material: " + this);
 				wait();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
