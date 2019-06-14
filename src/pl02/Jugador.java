@@ -42,36 +42,54 @@ public class Jugador extends Thread {
 		
 		// vueltas
 		for (int vuelta = 0; vuelta < numVueltas; vuelta++) {
-			System.out.println("Jugador " + id + "["+pelotas+","+palos+"] Reservando pelotas y palos.");
+			System.out.println(this.toString() + " Reservando pelotas y palos.");
 			
 			if (experto) {
-				elClub.reservar(2, 5);
-				pelotas += 2;
-				palos += 5;
+				pelotas = 1;
+				palos = ThreadLocalRandom.current().nextInt(2, 6);
 			} else {
-				elClub.reservar(5,  2);
-				pelotas += 5;
-				palos += 2;
+				pelotas = ThreadLocalRandom.current().nextInt(1, 6);
+				palos = 2;
 			}
 			
-			System.out.println("Jugador " + id + "["+pelotas+","+palos+"] Jugando al golf.");
-			int tiempoDeJuego = 100 + ThreadLocalRandom.current().nextInt(900);
+			elClub.reservar(pelotas, palos);
+			
+			System.out.println(this.toString() + " Jugando al golf.");
+			int tiempoDeJuego = ThreadLocalRandom.current().nextInt(100, 1000);
 			try {
 				Thread.sleep(tiempoDeJuego);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
-			System.out.println("Jugador " + id + "["+pelotas+","+palos+"] Devolviendo pelotas y palos.");
-			
+			System.out.println(this.toString() + " Devolviendo pelotas y palos.");
+
+			elClub.devolver(pelotas, palos);
 			pelotas = 0;
 			palos = 0;
-			elClub.devolver(pelotas, palos);
-			System.out.println("Jugador " + id + "["+pelotas+","+palos+"] Descansando.");
-
+			
+			System.out.println(this.toString() + " Descansando.");
+			int tiempoDeDescanso = ThreadLocalRandom.current().nextInt(100, 1000);
+			try {
+				Thread.sleep(tiempoDeDescanso);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			
 		}
+		System.out.println(elClub);
+
 	}
+
+	@Override
+	public String toString() {
+		char exp = experto? '+' : '-';
+		return "Jugador " + id + exp + "["+pelotas+","+palos+"]";
+	}
+	
+	
+	
 	
 	
 }
