@@ -1,11 +1,11 @@
-/**
- * 
- */
+
 package pl02;
 
 /**
  * @author David
  *
+ * Esta clase actua como un monitor, garantizando que el acceso a los
+ * recursos gestionados por la misma son accedidos en exclusión mútua.
  */
 public class Club {
 
