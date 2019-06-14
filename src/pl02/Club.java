@@ -67,8 +67,11 @@ public class Club {
 	 * @param palos
 	 */
 	public synchronized void devolver(int pelotas, int palos) {
+		// Incrementamos cantidades de material
 		pelotasDisponibles += pelotas;
 		palosDisponibles += palos;
+		// Notificamos a posibles hilos pendientes de reposición de material
+		// para que se reanuden.
 		notifyAll();
 	}
 
