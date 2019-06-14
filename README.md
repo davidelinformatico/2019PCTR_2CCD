@@ -15,13 +15,14 @@ Además:
  
 ## Enunciado
 
-· Tenemos un club de golf con material limitado : 20 pelotas y 20 palos.
-· En el club, hay dos tipos de jugadores, en un total de 14: 
-	· Novatos(signo'-' y valores 1-7): Solicitan 1-5 pelotas y 2 palos
-	· Expertos(sigo'+' y valores 8-14): Solicitan 1 pelota y 2-5 palos
+- Tenemos un club de golf con material limitado : 20 pelotas y 20 palos.
+
+- En el club, hay dos tipos de jugadores, en un total de 14:
+	- Novatos(signo'-' y valores 1-7): Solicitan 1-5 pelotas y 2 palos
+	- Expertos(sigo'+' y valores 8-14): Solicitan 1 pelota y 2-5 palos
 	
-· Cada jugador muestra sus acciones:
-	· Al realizar la reserva, muestra mensaje mostrando su identidad y los recursos solicitados.
+- Cada jugador muestra sus acciones:
+	- Al realizar la reserva, muestra mensaje mostrando su identidad y los recursos solicitados.
 	· Muestra mensaje cuando obtiene el material y 'juega al golf'.
 	· Devuelve el material, mostrando que material devuelve.
 	· Descansa.
@@ -35,8 +36,8 @@ Además:
 La entrega, se compone de un proyecto y tres clases (Simulador, Club y Jugador). El main es parte de Simulador.
 
 Subiendo a la plataforma:
-· Nombre del proyecto público en GitHub.
-· Distribución ejecutable en un fichero. 
+- Nombre del proyecto público en GitHub.
+- Distribución ejecutable en un fichero. 
 
 
 
