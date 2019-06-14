@@ -39,5 +39,22 @@ Subiendo a la plataforma:
 - Nombre del proyecto público en GitHub.
 - Distribución ejecutable en un fichero. 
 
+## Soluciones
+
+1. Se utilizan mecanismos de sincronización, garantizando la exclusión mutua.
+	- La clase club funciona como un monitor, garantizando la exclusión mutua:
+	El proceso de reserva gestiona la entrega de material al jugador solo un jugador a la vez es atendido (excl. mutua).
+
+2. Se evitan estados inconsistentes mediante mecanismos de preservación de invariantes de los objetos compartidos en concurrencia.
+3. Se aplica la concurrencia sobre el cumplimiento de dependencia de estados.
+	-Si no hay suficiente de algún recurso, hacemos esperar al hilo del jugador solicitante.
+4. Se sincronizan las respuestas de los hilos, evitando problemas de dependencias de estado.
+
+(Respustas 2,3 y 4)
+	-Si no hay suficiente de algún recurso, hacemos esperar al hilo del jugador solicitante. Repetimos la espera mientras no haya suficiente
+	- En cuanto sabemos que hay suficiente material, decrementamos cantidades.
+	- Se realiza mediante notifyAll(); en la clase Club.
+		
+ 
 
 
